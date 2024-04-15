@@ -1,0 +1,109 @@
+:root {
+    ---color-main: #50C4ED;
+    ---color-second: #387ADF;
+    ---color-third: #333A73;
+    ---color-help: #FBA834;
+    ---font-size-s: 1rem;
+    ---font-size-m: 1.5rem;
+    ---font-size-l: 2rem;
+    ---font-size-xl: 3rem;
+    ---padding-s: .5rem;
+    ---padding-m: .75rem;
+    ---padding-l: 1rem;
+    ---padding-xl: 1.5rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: var(---color-main);
+}
+
+/* ----------------------- main ------------------------- */
+
+.main-container {
+    height: calc(100svh - 1.5rem);
+    border: 1px solid;
+    display: grid;
+    grid-template-rows: 10% 90%;
+    text-align: center;
+}
+
+.container {
+    font-size: var(---font-size-l);
+    display: flex;
+    justify-content: star;
+    align-items: center;
+    flex-direction: column;
+    padding-top: var(---padding-m);
+}
+
+/* ----------------------- Form + img ------------------------- */
+form {
+    display: grid;
+    grid-template-columns: 75% 1fr;
+    border: 1px solid;
+    min-width: 50%;
+}
+
+img {
+    height: 3rem;
+    margin: auto;
+}
+
+img:hover {
+    cursor: pointer;
+    filter: drop-shadow(5px 5px 5px white);
+}
+
+input {
+    font-size: var(---font-size-m);
+    padding-left: 5%;
+    border-radius: 50px;
+}
+
+/* ----------------------- List ------------------------- */
+
+.list {
+    position: relative;
+    display: grid;
+    width: calc(100% - 10rem);
+    border: 1px solid white;
+    margin: var(---padding-l);
+    /* filter: blur(1px); */
+}
+
+.list::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: #9a9999;
+    filter: blur(4rem);
+}
+
+.box {
+    border-radius: 50px;
+    border-inline: 5px solid var(---color-third);
+    box-shadow: 0 10px 10px 1px var(---color-third), inset 0 2px 2px 1px var(---color-third);
+    background: linear-gradient(var(---color-main), var(---color-second));
+    margin-bottom: var(---padding-xl);
+    display: grid;
+    grid-template-columns: 70% 1fr 1fr;
+    font-size: var(---font-size-xl);
+}
+
+.name:hover {
+    cursor: pointer;
+}
+
+.action {
+    display: grid;
+}
+
+.action>img {
+    width: 3rem;
+}
