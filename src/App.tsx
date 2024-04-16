@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import add from './assets/add_circle_FILL0_wght400_GRAD0_opsz24.svg'
 import trash from './assets/delete_forever_FILL0_wght400_GRAD0_opsz24.svg'
-import edit from './assets/edit_FILL0_wght400_GRAD0_opsz24.svg'
+// import edit from './assets/edit_FILL0_wght400_GRAD0_opsz24.svg'
 import Popup from "./Popup"
 import './css/App.css'
 
@@ -20,20 +20,20 @@ export default function App() {
     setName('')
   }
 
+
   useEffect(() => {
     let list: string[] = []
-    list = JSON.parse(localStorage.getItem('items')!)
-    setData(list)
+    if (localStorage.length !== 0) {
+      list = JSON.parse(localStorage.getItem('items')!)
+      setData(list)
+    }
   }, [])
 
   const showAll = () => {
     return data.map((e, id) => {
       return (
         <div className="box" key={id}>
-          <div className="name" >{e}</div>
-          <div className="action">
-            <img src={edit} alt="edit" onClick={() => alert('edit')} />
-          </div>
+          <input className="name" value={e} id={`name${id.toString()}`} disabled />
           <div className="action">
             <img src={trash} alt="delete" onClick={() => deleteAction(e)} />
           </div>
@@ -42,8 +42,7 @@ export default function App() {
     }
     )
   }
-  //  TODO make a 5 visible and one extra
-  // const showMain = () => {}
+
 
   const deleteAction = (name: string) => {
     let list = [...data]
