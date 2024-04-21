@@ -66,7 +66,7 @@ export default function App() {
             placeholder="Write here"
             onChange={(e) => setName(e.target.value)}
           />
-          <button type="submit" />
+          <button type="submit" onClick={() => alert('working')} />
         </form>
         <div className="list">
           {data.length !== 0 ? showAll() : <Popup></Popup>}
